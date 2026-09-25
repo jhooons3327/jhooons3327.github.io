@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ji-Hoon Jung</title>
+<meta name="description" content="Ji-Hoon Jung — PhD student in Biomedical Engineering, University of Ulsan College of Medicine / Asan Medical Center. CT harmonization, 4D flow MRI reconstruction, and 4D segmentation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫀</text></svg>">
+<style>
+:root{
+  --bg:#ffffff; --fg:#1a1a1a; --muted:#6b6b6b; --rule:#e4e4e4;
+  --accent:#8c2f39; --chip-bg:#f4f4f4; --chip-fg:#4a4a4a;
+  --mark:#fbf3d5;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15161a; --fg:#e6e6e6; --muted:#9a9a9a; --rule:#2d2f36;
+    --accent:#e08a93; --chip-bg:#24262c; --chip-fg:#b9b9b9;
+    --mark:#3a3420;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15161a; --fg:#e6e6e6; --muted:#9a9a9a; --rule:#2d2f36;
+  --accent:#e08a93; --chip-bg:#24262c; --chip-fg:#b9b9b9;
+  --mark:#3a3420;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  font-size:16px; line-height:1.65;
+}
+.wrap{max-width:760px; margin:0 auto; padding:56px 16px 96px}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+
+header h1{font-size:2rem; line-height:1.2; margin:0 0 .2em; letter-spacing:-.01em}
+header .ko{color:var(--muted); font-weight:400; font-size:1.05rem}
+.affil{color:var(--muted); margin:.4em 0 0; font-size:.95rem}
+.links{margin-top:1em; font-size:.9rem; display:flex; flex-wrap:wrap; gap:.4em 1em}
+
+h2{
+  font-size:.8rem; text-transform:uppercase; letter-spacing:.11em;
+  color:var(--muted); font-weight:600;
+  margin:3rem 0 1rem; padding-bottom:.5rem; border-bottom:1px solid var(--rule);
+}
+p{margin:0 0 1em}
+
+/* news */
+.news{list-style:none; padding:0; margin:0; font-size:.94rem}
+.news li{display:flex; gap:1em; padding:.35em 0; align-items:baseline}
+.news .when{color:var(--muted); flex:0 0 5.2em; font-variant-numeric:tabular-nums; font-size:.86rem}
+
+/* publications */
+.pub{padding:1.1em 0; border-bottom:1px solid var(--rule)}
+.pub:last-child{border-bottom:none}
+.pub .title{font-weight:600; display:block; margin-bottom:.25em}
+.pub .authors{font-size:.9rem; color:var(--muted); margin-bottom:.2em}
+.pub .authors .me{color:var(--fg); font-weight:600}
+.pub .venue{font-size:.9rem; color:var(--muted); font-style:italic}
+.pub .venue .yr{font-style:normal}
+.badges{margin-top:.55em; display:flex; flex-wrap:wrap; gap:.4em}
+.badge{
+  font-size:.75rem; letter-spacing:.03em; padding:.18em .6em; border-radius:3px;
+  background:var(--chip-bg); color:var(--chip-fg); border:1px solid var(--rule);
+}
+a.badge:hover{background:var(--accent); color:#fff; border-color:var(--accent); text-decoration:none}
+.flag{
+  display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--accent); border:1px solid currentColor;
+  border-radius:3px; padding:.05em .45em; margin-right:.5em; vertical-align:.12em;
+}
+.role{
+  font-size:.75rem; letter-spacing:.03em; padding:.18em .6em; border-radius:3px;
+  background:transparent; color:var(--accent); border:1px solid var(--accent); font-weight:600;
+}
+.if{font-variant-numeric:tabular-nums}
+.subhead{font-size:.8rem; font-weight:600; color:var(--muted); letter-spacing:.06em;
+  text-transform:uppercase; margin:2rem 0 .2rem}
+
+/* challenges */
+.ch{margin-bottom:2rem}
+.ch h3{font-size:1.02rem; margin:0 0 .15em}
+.ch .sub{font-size:.9rem; color:var(--muted); margin:0 0 .7em}
+.result{background:var(--mark); border-left:3px solid var(--accent);
+  padding:.55em .85em; font-size:.92rem; margin:0 0 .9em; border-radius:0 3px 3px 0}
+table{border-collapse:collapse; width:100%; font-size:.86rem; margin:0}
+th,td{text-align:left; padding:.5em .7em; border-bottom:1px solid var(--rule); vertical-align:top}
+th{color:var(--muted); font-weight:600; font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; white-space:nowrap}
+td:first-child{white-space:nowrap; font-weight:600}
+.tscroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+
+/* timeline */
+.cv{list-style:none; padding:0; margin:0}
+.cv li{display:flex; gap:1.2em; padding:.6em 0; border-bottom:1px solid var(--rule)}
+.cv li:last-child{border-bottom:none}
+.cv .when{flex:0 0 9.5em; color:var(--muted); font-size:.85rem; font-variant-numeric:tabular-nums; padding-top:.12em}
+.cv .what strong{display:block; font-weight:600}
+.cv .what span{font-size:.9rem; color:var(--muted)}
+
+footer{margin-top:4rem; padding-top:1.2rem; border-top:1px solid var(--rule);
+  font-size:.82rem; color:var(--muted)}
+
+@media (max-width:560px){
+  .wrap{padding:36px 16px 64px}
+  header h1{font-size:1.65rem}
+  .cv li{flex-direction:column; gap:.15em}
+  .cv .when{flex:none}
+  .news li{flex-direction:column; gap:0}
+  .news .when{flex:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Ji-Hoon Jung <span class="ko">정지훈</span></h1>
+  <p class="affil">
+    PhD Student, Department of Biomedical Engineering,<br>
+    Asan Medical Center, University of Ulsan College of Medicine<br>
+    Researcher, Biomedical Engineering Research Center, Asan Institute for Life Sciences
+  </p>
+  <nav class="links">
+    <a href="mailto:jhooons3327@gmail.com">jhooons3327@gmail.com</a>
+    <a href="https://github.com/jhooons3327">GitHub</a>
+    <a href="https://orcid.org/0009-0002-7416-6727">ORCID</a>
+    <a href="https://scholar.google.com/citations?user=cX_5nmwAAAAJ&amp;hl=en">Google Scholar</a>
+  </nav>
+</header>
+
+<section>
+  <h2>About</h2>
+  <p>
+    I am a PhD student in Biomedical Engineering at the University of Ulsan College of Medicine
+    and a researcher at Asan Medical Center, Seoul, working on deep learning for medical imaging.
+  </p>
+  <p>
+    My current work centers on three problems: <strong>CT harmonization</strong> — pushing kernel
+    conversion toward a fully unpaired setting, with no matched multi-kernel scans; <strong>4D flow MRI reconstruction</strong> under
+    high acceleration; and <strong>4D segmentation</strong> of time-resolved cardiovascular imaging.
+  </p>
+</section>
+
+<section>
+  <h2>News</h2>
+  <ul class="news">
+    <li><span class="when">Oct 2026</span><span>Final CMRx4DFlow2026 challenge results announced at MICCAI 2026, Abu Dhabi.</span></li>
+    <li><span class="when">2026</span><span><em>Any-to-One CT Kernel Conversion without Source-Kernel Data</em> accepted at <strong>SASHIMI 2026</strong> (MICCAI workshop).</span></li>
+    <li><span class="when">2026</span><span>Brain-metastasis segmentation paper published in <em>Intelligent Oncology</em>.</span></li>
+    <li><span class="when">2025</span><span>Diffusion-based low-dose CT → calcium scoring CT translation published in <em>Computers in Biology and Medicine</em>.</span></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Publications</h2>
+
+  <div class="pub">
+    <span class="title">Any-to-One CT Kernel Conversion without Source-Kernel Data</span>
+    <div class="authors"><span class="me">Ji-Hoon Jung</span>, Sang Min Lee, June-Goo Lee</div>
+    <div class="venue">SASHIMI 2026, MICCAI Workshop on Simulation and Synthesis in Medical Imaging <span class="yr">· 2026</span></div>
+    <div class="badges">
+      <span class="role">First author</span>
+      <a class="badge" href="papers/2026_sashimi_poster.jpg" target="_blank" rel="noopener">Poster</a>
+      <a class="badge" href="papers/2026_sashimi_poster.pdf" target="_blank" rel="noopener">Poster (PDF, 24&nbsp;MB)</a>
+    </div>
+  </div>
+
+  <div class="pub">
+    <span class="title">AI-enabled cardiac volumetry on non-contrast calcium scoring CT for predicting atrial fibrillation and mortality</span>
+    <div class="authors">June-Eun Lee<sup>&dagger;</sup>, <span class="me">Ji-Hoon Jung<sup>&dagger;</sup></span>, Hyunmin Oh, Hyunsoo Lee, June-Goo Lee, Hyun Jung Koo, Joon-Won Kang, Dong Hyun Yang</div>
+    <div class="venue">Journal of Cardiovascular Computed Tomography <span class="yr">· 2026</span></div>
+    <div class="badges">
+      <span class="role">Co-first author</span>
+      <span class="badge if">IF 5.8</span>
+      <span class="badge">&dagger; equal contribution</span>
+    </div>
+  </div>
+
+  <div class="pub">
+    <span class="title">Deep learning-based segmentation of small-volume brain metastases in lung cancer patients</span>
+    <div class="authors"><span class="me">Ji-Hoon Jung</span>, Leonard Sunwoo, Hyunjae Ji, Sooyoung Yoo, Ji Eun Park, June-Goo Lee</div>
+    <div class="venue">Intelligent Oncology, 100049 <span class="yr">· 2026</span></div>
+    <div class="badges">
+      <span class="role">First author</span>
+    </div>
+  </div>
+
+  <div class="pub">
+    <span class="title">Diffusion-based image translation model from low-dose chest CT to calcium scoring CT with random point sampling</span>
+    <div class="authors"><span class="me">Ji-Hoon Jung</span>, June-Eun Lee, Hyun Soo Lee, Dong Hyun Yang, June-Goo Lee</div>
+    <div class="venue">Computers in Biology and Medicine, 194:110506 <span class="yr">· 2025</span></div>
+    <div class="badges">
+      <span class="role">First author</span>
+      <span class="badge if">IF 6.3</span>
+    </div>
+  </div>
+
+  <div class="pub">
+    <span class="title">ZOZI-Seg: A transformer and UNet cascade network with Zoom-Out and Zoom-In scheme for aortic dissection segmentation in enhanced CT images</span>
+    <div class="authors"><span class="me">Ji-Hoon Jung</span>, Hyun Min Oh, Gyu Jin Jeong, Tae Woo Kim, Hyun Jung Koo, June-Goo Lee, Dong Hyun Yang</div>
+    <div class="venue">Computers in Biology and Medicine, 175:108494 <span class="yr">· 2024</span></div>
+    <div class="badges">
+      <span class="role">First author</span>
+      <span class="badge if">IF 7.0</span>
+      <span class="badge">12 citations</span>
+    </div>
+  </div>
+
+  <div class="subhead">Under Review</div>
+  <div class="pub">
+    <span class="title"><span class="flag">In review</span>Diffusion-Based Metal Artifact Reduction for Postoperative CT Imaging Following Reverse Total Shoulder Arthroplasty</span>
+    <div class="venue">Journal of Imaging Informatics in Medicine</div>
+  </div>
+</section>
+
+<section>
+  <h2>Challenges</h2>
+
+  <div class="ch">
+    <h3>CMRx4DFlow2026 — 4D Flow MRI Reconstruction Challenge</h3>
+    <p class="sub">MICCAI 2026, Abu Dhabi · <em>Towards Clinical Adoption of Ultra-Fast 4D Flow MRI</em> · 400+ cases from 10+ clinical centers</p>
+    <p class="result">
+      Submitted to all four tasks; awards expected in at least one.
+      Final results announced 1 October 2026.
+    </p>
+    <div class="badges">
+      <a class="badge" href="https://cmrx.chihucloud.com/2026/">Challenge site</a>
+    </div>
+  </div>
+
+  <div class="ch">
+    <h3>USenhance 2023 — Ultrasound Image Enhancement Challenge</h3>
+    <p class="sub">MICCAI 2023 · Fudan University · 1,500 low/high-quality image pairs from 109 patients across thyroid, carotid artery, liver, breast, and kidney</p>
+    <p class="result"><strong>1st Place.</strong></p>
+    <div class="badges">
+      <a class="badge" href="https://ultrasoundenhance2023.grand-challenge.org/">Challenge site</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <ul class="cv">
+    <li>
+      <span class="when">2024.09 – present</span>
+      <span class="what"><strong>PhD, Biomedical Engineering</strong>
+      <span>University of Ulsan College of Medicine, Asan Medical Center, Seoul</span></span>
+    </li>
+    <li>
+      <span class="when">2022.09 – 2024.08</span>
+      <span class="what"><strong>MS, Biomedical Engineering</strong>
+      <span>University of Ulsan College of Medicine, Asan Medical Center, Seoul</span></span>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>Experience</h2>
+  <ul class="cv">
+    <li>
+      <span class="when">2022.02 – present</span>
+      <span class="what"><strong>Researcher</strong>
+      <span>Biomedical Engineering Research Center, Asan Institute for Life Sciences, Asan Medical Center, Seoul</span></span>
+    </li>
+    <li>
+      <span class="when">2019.01 – 2021.12</span>
+      <span class="what"><strong>Site Engineer</strong>
+      <span>Siemens Korea, Smart Infrastructure (SI)</span></span>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p>
+    <a href="mailto:jhooons3327@gmail.com">jhooons3327@gmail.com</a><br>
+    Asan Medical Center, 88 Olympic-ro 43-gil, Songpa-gu, Seoul 05505, Republic of Korea
+  </p>
+</section>
+
+<footer>
+  Last updated September 2026.
+</footer>
+
+</div>
+</body>
+</html>
